@@ -1,0 +1,31 @@
+create database project;
+use project
+
+create table passenger(passenger_id int PRIMARY KEY auto_increment,pname varchar(50),gender varchar(20),no_of_seats int,mob_no int,age int ,source varchar(30),destination varchar(30),bdate date,tdate date,fare int,bus_id int);
+create table bus(bus_id int,bus_type varchar(30),capacity int ,fare int,op_id int, route_id int,primary key(bus_id));
+create table route(route_id int ,station_id int,station_name varchar(30),primary key(route_id,station_id));
+create table running_details(bus_id int,running_date date,seat_available int,primary key(bus_id,running_date));
+create table bus_operator(op_id int ,oname varchar(30),address varchar(30),email varchar(30),phone int,primary key(op_id));
+
+insert into bus_operator values(01,"Kamla","Jhansi","kamlatravel@gmail.com",884531259);
+insert into bus_operator values(02,"Hans","Kanpur","Hanstravel@gmail.com",963258741);
+
+insert into route values(31,1,"Guna");
+insert into route values(31,2,"Jaypee");
+insert into route values(31,3,"Binagarh");
+insert into route values(31,4,"Biaora");
+insert into route values(31,5,"Bhopal");
+
+insert into route values(32,1,"Bhopal");
+insert into route values(32,2,"Biaora");
+insert into route values(32,3,"Binagarh");
+insert into route values(32,4,"Jaypee");
+insert into route values(32,5,"Guna");
+
+insert into bus values(21,"AC 2x2",50,1000,01,31);
+insert into bus values(22,"2x2",60,800,02,32);
+
+insert into running_details values(21,"2022-11-27",50);
+insert into running_details values(22,"2022-11-28",60);
+
+
